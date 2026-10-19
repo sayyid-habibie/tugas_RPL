@@ -1,0 +1,46 @@
+# ============================================================
+# .gitignore — Sistem Inventori Barang
+# ============================================================
+
+# Konfigurasi database lokal (jangan di-push ke repo publik)
+# Ganti file ini dengan template jika perlu berbagi config
+config/database.php
+
+# File environment dan konfigurasi sensitif
+.env
+.env.local
+*.env
+
+# Dependensi (jika suatu saat menggunakan Composer)
+vendor/
+composer.lock
+
+# Cache dan log PHP
+*.log
+logs/
+/log/
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# File editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# File upload pengguna (jika ada fitur upload gambar)
+uploads/
+public/uploads/
+
+# File backup database
+*.sql.bak
+*.dump
+
+# File sementara
+*.tmp
+*.temp
+/tmp/
