@@ -1,10 +1,10 @@
-# 📦 Sistem Inventori Barang
+# Sistem Inventori Barang
 
 Aplikasi manajemen inventori berbasis **PHP Native** dan **MySQL** yang dibangun sebagai tugas individu mata kuliah **Implementasi Coding Standard & Version Control**.
 
 ---
 
-## 🎯 Fitur Aplikasi
+## Fitur Aplikasi
 
 | Fitur | Keterangan |
 |---|---|
@@ -16,7 +16,7 @@ Aplikasi manajemen inventori berbasis **PHP Native** dan **MySQL** yang dibangun
 
 ---
 
-## 🗂️ Struktur Folder
+## Struktur Folder
 
 ```
 tugas_RPL/
@@ -41,13 +41,13 @@ tugas_RPL/
 ├── process/
 │   └── barang_process.php     # Handler POST: proses add, edit, delete
 ├── .gitignore                 # File yang dikecualikan dari Git
-├── index.php                  # Entry point → redirect ke dashboard
+├── index.php                  # Entry point -> redirect ke dashboard
 └── README.md                  # Dokumentasi ini
 ```
 
 ---
 
-## ⚙️ Persyaratan Sistem
+## Persyaratan Sistem
 
 - **XAMPP** versi 7.4+ (PHP 7.4+ dan MySQL 5.7+ / MariaDB 10.4+)
 - Browser modern (Chrome, Firefox, Edge)
@@ -55,32 +55,34 @@ tugas_RPL/
 
 ---
 
-## 🚀 Cara Instalasi & Menjalankan
+## Cara Instalasi & Menjalankan
 
 ### Langkah 1 — Pastikan XAMPP berjalan
 
 Buka **XAMPP Control Panel** dan jalankan:
-- ✅ **Apache**
-- ✅ **MySQL**
+
+- Apache
+- MySQL
 
 ### Langkah 2 — Tempatkan project di folder htdocs
 
 Pastikan folder project berada di:
+
 ```
 C:\xampp\htdocs\tugas_RPL\
 ```
 
 ### Langkah 3 — Import database
 
-Ada dua cara:
-
 **Cara A — Via phpMyAdmin (disarankan):**
-1. Buka browser → `http://localhost/phpmyadmin`
-2. Klik **New** → buat database bernama `inventori_barang`
-3. Klik tab **Import** → pilih file `database/inventori.sql`
+
+1. Buka browser: `http://localhost/phpmyadmin`
+2. Klik **New**, buat database bernama `inventori_barang`
+3. Klik tab **Import**, pilih file `database/inventori.sql`
 4. Klik tombol **Go / Import**
 
 **Cara B — Via Terminal MySQL:**
+
 ```bash
 mysql -u root -p < C:/xampp/htdocs/tugas_RPL/database/inventori.sql
 ```
@@ -90,11 +92,11 @@ mysql -u root -p < C:/xampp/htdocs/tugas_RPL/database/inventori.sql
 Buka file `config/database.php` dan sesuaikan nilainya:
 
 ```php
-define('DB_HOST', 'localhost');   // Host MySQL
-define('DB_PORT', '3306');        // Port MySQL
+define('DB_HOST', 'localhost');        // Host MySQL
+define('DB_PORT', '3306');             // Port MySQL
 define('DB_NAME', 'inventori_barang'); // Nama database
-define('DB_USER', 'root');        // Username MySQL
-define('DB_PASS', '');            // Password MySQL (kosong untuk XAMPP default)
+define('DB_USER', 'root');             // Username MySQL
+define('DB_PASS', '');                 // Password MySQL (kosong untuk XAMPP default)
 ```
 
 ### Langkah 5 — Buka aplikasi di browser
@@ -107,9 +109,9 @@ Aplikasi akan otomatis menampilkan halaman **Dashboard**.
 
 ---
 
-## 🖥️ Menjalankan di VS Code + XAMPP
+## Menjalankan di VS Code + XAMPP
 
-1. Buka VS Code → **File → Open Folder** → pilih `C:\xampp\htdocs\tugas_RPL`
+1. Buka VS Code, pilih **File > Open Folder**, arahkan ke `C:\xampp\htdocs\tugas_RPL`
 2. Edit file sesuai kebutuhan
 3. Pastikan Apache dan MySQL di XAMPP sudah aktif
 4. Buka browser dan akses `http://localhost/tugas_RPL`
@@ -119,70 +121,100 @@ Aplikasi akan otomatis menampilkan halaman **Dashboard**.
 
 ---
 
-## 🔒 Coding Standard yang Diterapkan
+## Coding Standard yang Diterapkan
 
 ### Keamanan
-- ✅ **Prepared Statements** — semua query database menggunakan PDO prepared statements untuk mencegah SQL Injection
-- ✅ **`htmlspecialchars()`** — semua output user-input di-escape sebelum ditampilkan di HTML
-- ✅ **`filter_input()`** — validasi dan sanitasi input dari GET/POST
-- ✅ **Open Redirect Protection** — URL redirect divalidasi agar hanya menuju domain yang sama
+
+- **Prepared Statements** — semua query database menggunakan PDO prepared statements untuk mencegah SQL Injection
+- **`htmlspecialchars()`** — semua output user-input di-escape sebelum ditampilkan di HTML
+- **`filter_input()`** — validasi dan sanitasi input dari GET/POST
+- **Open Redirect Protection** — URL redirect divalidasi agar hanya menuju domain yang sama
 
 ### Struktur Kode
-- ✅ **Pemisahan Concern** — config, fungsi, tampilan, dan proses CRUD dipisahkan ke file masing-masing
-- ✅ **Naming Convention** — `snake_case` untuk variabel/fungsi PHP, `camelCase` untuk JavaScript
-- ✅ **Docblock Komentar** — setiap fungsi dilengkapi PHPDoc (`@param`, `@return`)
-- ✅ **Type Hints** — deklarasi tipe parameter dan return value pada semua fungsi
-- ✅ **Validasi Dua Lapis** — client-side (JavaScript) dan server-side (PHP)
+
+- **Pemisahan Concern** — config, fungsi, tampilan, dan proses CRUD dipisahkan ke file masing-masing
+- **Naming Convention** — `snake_case` untuk variabel/fungsi PHP, `camelCase` untuk JavaScript
+- **Docblock Komentar** — setiap fungsi dilengkapi PHPDoc (`@param`, `@return`)
+- **Type Hints** — deklarasi tipe parameter dan return value pada semua fungsi
+- **Validasi Dua Lapis** — client-side (JavaScript) dan server-side (PHP)
 
 ### Tampilan
-- ✅ **CSS Custom Properties** — design token untuk warna, ukuran, dan shadow
-- ✅ **Responsif** — layout menyesuaikan layar mobile, tablet, dan desktop
-- ✅ **Aksesibilitas** — atribut `aria-*`, `role`, dan `aria-label` pada elemen interaktif
+
+- **CSS Custom Properties** — design token untuk warna, ukuran, dan shadow
+- **Responsif** — layout menyesuaikan layar mobile, tablet, dan desktop
+- **Aksesibilitas** — atribut `aria-*`, `role`, dan `aria-label` pada elemen interaktif
 
 ---
 
-## 🌿 Panduan Version Control (Git)
+## Version Control (Git)
 
-Project ini disiapkan untuk dikelola dengan Git. Berikut alur commit yang disarankan:
+Repository project ini sudah diinisialisasi, commit pertama sudah dibuat, dan kode sudah di-push ke GitHub pada branch `main`.
 
-### Inisialisasi Repository
+**Repository:** [Repository GitHub](https://github.com/sayyid-habibie/tugas_RPL)
+
+> **Catatan keamanan:** File `config/database.php` sudah dikecualikan melalui `.gitignore`
+> karena berisi konfigurasi lokal (host, user, password). File ini tidak ikut ter-push
+> ke repository publik. Siapa pun yang meng-clone repo ini perlu membuat file tersebut
+> secara manual sesuai lingkungan lokal masing-masing (lihat Langkah 4 di atas).
+
+### Melihat Status dan Riwayat Commit
 
 ```bash
-cd C:\xampp\htdocs\tugas_RPL
-git init
-git remote add origin https://github.com/username/tugas-inventori-rpl.git
+# Lihat status file yang berubah
+git status
+
+# Lihat riwayat commit
+git log --oneline
+
+# Lihat detail perubahan yang belum di-stage
+git diff
 ```
 
-### Commit 1 — Struktur project dan konfigurasi database
+### Membuat Commit Setelah Ada Perubahan
+
+Setelah melakukan perubahan pada file, stage file yang relevan lalu buat commit dengan pesan yang jelas:
 
 ```bash
-git add config/database.php database/inventori.sql .gitignore README.md
-git commit -m "feat: inisialisasi project dan konfigurasi database"
+# Stage file tertentu (disarankan, hindari git add -A)
+git add nama-file.php
+
+# Atau stage seluruh perubahan pada folder tertentu
+git add pages/
+
+# Buat commit
+git commit -m "tipe: deskripsi singkat perubahan yang dilakukan"
 ```
 
-### Commit 2 — Fitur CRUD barang
+Contoh format pesan commit yang baik:
+
+| Tipe | Contoh pesan |
+|---|---|
+| `feat` | `feat: tambah fitur ekspor data ke CSV` |
+| `fix` | `fix: perbaiki validasi stok saat edit barang` |
+| `style` | `style: perbaiki tampilan tabel pada layar kecil` |
+| `docs` | `docs: perbarui README dengan instruksi instalasi` |
+| `refactor` | `refactor: pisahkan logika validasi ke fungsi tersendiri` |
+
+### Mengirim Perubahan ke GitHub
 
 ```bash
-git add includes/ pages/ process/ index.php
-git commit -m "feat: tambah fitur CRUD barang (tambah, edit, hapus, daftar)"
+# Push commit terbaru ke branch main
+git push origin main
 ```
 
-### Commit 3 — Validasi, pencarian, dan perapian tampilan
+Jika ingin mengerjakan fitur baru tanpa mengganggu branch `main`:
 
 ```bash
-git add assets/css/style.css assets/js/main.js
-git commit -m "feat: tambah validasi form, pencarian, dan perbaikan tampilan responsif"
-```
+# Buat dan pindah ke branch baru
+git checkout -b nama-fitur
 
-### Push ke GitHub
-
-```bash
-git push -u origin main
+# Setelah selesai, push branch tersebut
+git push origin nama-fitur
 ```
 
 ---
 
-## 📷 Preview Halaman
+## Preview Halaman
 
 | Halaman | URL |
 |---|---|
@@ -194,7 +226,7 @@ git push -u origin main
 
 ---
 
-## 👤 Informasi
+## Informasi
 
 - **Mata Kuliah:** Implementasi Coding Standard & Version Control
 - **Teknologi:** PHP Native, MySQL, HTML5, CSS3, JavaScript (Vanilla)
