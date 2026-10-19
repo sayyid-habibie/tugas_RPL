@@ -218,12 +218,13 @@ function initFormValidation() {
                 }
             });
 
-            // Validasi stok harus angka positif
+            // Validasi stok harus bilangan bulat tidak negatif
             const stokInput = form.querySelector('[name="stok"]');
             if (stokInput && stokInput.value.trim() !== '') {
-                const stokVal = parseInt(stokInput.value, 10);
-                if (isNaN(stokVal) || stokVal < 0) {
-                    markInvalid(stokInput, 'Stok harus berupa angka positif.');
+                const stokRaw = stokInput.value.trim();
+                const stokVal = Number(stokRaw);
+                if (!Number.isInteger(stokVal) || stokVal < 0) {
+                    markInvalid(stokInput, 'Stok harus berupa bilangan bulat tidak negatif (contoh: 0, 1, 50).');
                     isValid = false;
                 }
             }

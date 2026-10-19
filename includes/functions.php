@@ -353,10 +353,14 @@ function validateBarangInput(array $data): array
         $errors[] = 'Kategori tidak boleh kosong.';
     }
 
-    if (!isset($data['stok']) || $data['stok'] === '') {
+    $stokTrimmed = trim((string) ($data['stok'] ?? ''));
+    if ($stokTrimmed === '') {
         $errors[] = 'Jumlah stok tidak boleh kosong.';
-    } elseif (!is_numeric($data['stok']) || (int) $data['stok'] < 0) {
-        $errors[] = 'Jumlah stok harus berupa angka positif.';
+    } elseif (!ctype_digit($stokTrimmed)) {
+        // ctype_digit() hanya loloskan digit 0-9 tanpa tanda, titik, atau eksponen.
+        // Menolak: "2.5", "-1", "2e0", "abc", " 5", dan string lain yang bukan
+        // barisan digit murni. Nilai "0" dan "100" lolos.
+        $errors[] = 'Jumlah stok harus berupa bilangan bulat tidak negatif (contoh: 0, 1, 50).';
     }
 
     if (empty(trim($data['satuan'] ?? ''))) {
